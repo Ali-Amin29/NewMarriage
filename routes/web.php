@@ -53,3 +53,4 @@ Route::get('/resultsearchuser', function () {
 Route::get('/searchclientdash', function () {
     return view('searchclientdashboard');
 });
+// also Mahmoud use this route to make chat i will send database for u and you can add what you want ..
