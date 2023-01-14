@@ -20,6 +20,7 @@
     ***********************************-->
     <div id="main-wrapper">
         @include('Include.navbardashboard')
+        @include('Include.chatboxdashboard')
         @include('Include.headerdashboard')
         @include('Include.sidebardashboard')
         @yield('container')

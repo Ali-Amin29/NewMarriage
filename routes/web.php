@@ -39,3 +39,17 @@ Route::resource('Specification', SpecificationController::class);
 Route::get('/se', function () {
     return view('serviceproviderprofile');
 });
+
+// for Kareem
+
+// for first route search you will need to show the output
+Route::get('/searchclientuser', function () {
+    return view('searchclientuser');
+});
+Route::get('/resultsearchuser', function () {
+    return view('resultsearchuser');
+});
+
+Route::get('/searchclientdash', function () {
+    return view('searchclientdashboard');
+});

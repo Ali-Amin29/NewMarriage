@@ -3,8 +3,8 @@
 ***********************************-->
 <div class="deznav">
     <div class="deznav-scroll mm-active ps ps--active-y">
-        <a href="javascript:void(0)" class="add-menu-sidebar" data-toggle="modal" data-target="#addOrderModalside">حدث جديد
-            +</a>
+        <a href="javascript:void(0)" class="add-menu-sidebar" data-toggle="modal" data-target="#addOrderModalside">حدث
+            جديد +</a>
         <ul class="metismenu" id="menu">
             <li>
                 <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
