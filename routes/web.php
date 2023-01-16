@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\SpecificationController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ServiceProviderSearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,16 @@ Route::resource('Specification', SpecificationController::class);
 Route::get('/se', function () {
     return view('serviceproviderprofile');
 });
+
+
+// search about service provider
+
+Route::get('/search', [App\Http\Controllers\ServiceProviderSearchController::class, 'index']);
+Route::get('/filter', [App\Http\Controllers\ServiceProviderSearchController::class, 'search'])->name('advance_search');
+
+// end search about service provider
+
+
 
 // for Kareem
 
