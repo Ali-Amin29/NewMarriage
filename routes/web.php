@@ -25,23 +25,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
 Route::get('/clientregister', function () {
     return view('registerclient');
 })->middleware('auth')->name('registerclient');
 
-
 // for Client Operations
 Route::resource('client', ClientController::class);
 Route::resource('Specification', SpecificationController::class);
-
 
 Route::get('/se', function () {
     return view('serviceproviderprofile');
 });
 
 // for Kareem
-
 // for first route search you will need to show the output
 Route::get('/searchclientuser', function () {
     return view('searchclientuser');
@@ -49,7 +45,6 @@ Route::get('/searchclientuser', function () {
 Route::get('/resultsearchuser', function () {
     return view('resultsearchuser');
 });
-
 Route::get('/searchclientdash', function () {
     return view('searchclientdashboard');
 });
