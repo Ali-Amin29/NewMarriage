@@ -10,11 +10,14 @@ class Serviceprovider extends Model
     use HasFactory;
 
     protected $fillable = [
-        'image' ,
+        'image',
         'user_id',
         'numberId',
         'brief',
         'status'
     ];
-
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'user_ID');
+    }
 }
