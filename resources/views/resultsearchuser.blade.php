@@ -38,19 +38,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><strong> نور</strong></td>
-                                            <td>170 m</td>
-                                            <td>70 kg</td>
-                                            <td>24 سنه</td>
-                                            <td>عزباء</td>
-                                            <td>سعودية</td>
-                                            <td>
-                                                <button type="button" class="btn btn-primary mb-1">
-                                                    عرض البيانات
-                                                </button>
-                                            </td>
-                                        </tr>
+                                        @forelse($clients as $client)
+                                            <tr>
+                                                <td><strong> {{ $client->realName }}</strong></td>
+                                                <td>{{ $client->length }} سم</td>
+                                                <td>{{ $client->weight }} كجم</td>
+                                                <td>{{ $client->age }} عام</td>
+                                                <td>{{ $client->maritalStatus }}</td>
+                                                <td>{{ $client->country }}</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary mb-1">
+                                                        عرض البيانات
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        @empty
+                                            <p class="text-center text-danger">لا يوجد بيانات متاحة</p>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>
@@ -80,8 +84,8 @@
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
     <!--**********************************
-                                                                                                                                                    Scripts
-                                                                                                                                                ***********************************-->
+                                                                                                                                                                                                    Scripts
+                                                                                                                                                                                                ***********************************-->
     <!-- Required vendors -->
     <script src="./vendor/global/global.min.js"></script>
     <script src="./js/custom.min.js"></script>

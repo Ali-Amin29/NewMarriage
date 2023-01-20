@@ -47,8 +47,8 @@
                 </div>
             </div>
             <!--**********************************
-                                  Table Start
-                       ***********************************-->
+                                                                                                                                                                                                                                                                                                                                              Table Start
+                                                                                                                                                                                                                                                                                                                                   ***********************************-->
             <div class="row">
                 <div class="col-xl-12">
                     <div class="card">
@@ -56,172 +56,122 @@
                             <h5 class="card-title">البحث عن عميل</h5>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form action="{{ route('resultClientsDash') }}" method="POST">
+                                @csrf
                                 <div class="row">
+                                    {{-- الجنس --}}
                                     <div class="form-group col-lg-3 col-md-6 d-flex flex-column">
                                         <label class="col-form-label"><strong> الجنس</strong></label>
-                                        <div class="dropdown custom-dropdown">
-                                            <button type="button"
-                                                class="btn btn-outline-primary w-100 d-flex justify-content-between align-items-center"
-                                                data-toggle="dropdown" aria-expanded="true">
-                                                انثي<i class="fa fa-angle-down"></i>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right" x-placement="top-end"
-                                                style="
-                            position: absolute;
-                            will-change: transform;
-                            top: 0px;
-                            left: 0px;
-                            transform: translate3d(80px, -115px, 0px);
-                          ">
-                                                <a class="dropdown-item" href="#"> 170 m </a>
-                                                <a class="dropdown-item" href="#">Last 6 Month</a>
-                                                <a class="dropdown-item" href="#">Last 10 Month</a>
-                                            </div>
-                                        </div>
+                                        <select name="gender"
+                                            class="btn btn-outline-primary w-100 d-flex justify-content-between align-items-center">
+                                            <option
+                                                style="position: absolute; transform; top: 0px; left: 0px; transform: translate3d(80px, -115px, 0px);"
+                                                value="" selected disabled> إختر الجنس </option>
+                                            <option value="ذكر">ذكر</option>
+                                            <option value="أنثى">أنثى</option>
+                                        </select>
                                     </div>
 
+                                    {{-- الطول --}}
                                     <div class="form-group col-lg-3 col-md-6 d-flex flex-column">
                                         <label class="col-form-label"><strong> الطول</strong></label>
-                                        <div class="dropdown custom-dropdown">
-                                            <button type="button"
-                                                class="btn btn-outline-primary w-100 d-flex justify-content-between align-items-center"
-                                                data-toggle="dropdown" aria-expanded="true">
-                                                170 m <i class="fa fa-angle-down"></i>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right" x-placement="top-end"
-                                                style="
-                            position: absolute;
-                            will-change: transform;
-                            top: 0px;
-                            left: 0px;
-                            transform: translate3d(80px, -115px, 0px);
-                          ">
-                                                <a class="dropdown-item" href="#"> 170 m </a>
-                                                <a class="dropdown-item" href="#">Last 6 Month</a>
-                                                <a class="dropdown-item" href="#">Last 10 Month</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-lg-3 col-md-6 d-flex flex-column">
-                                        <label class="col-form-label"><strong> الحالة الاجتماعية</strong></label>
-                                        <div class="dropdown custom-dropdown">
-                                            <button type="button"
-                                                class="btn btn-outline-primary w-100 d-flex justify-content-between align-items-center"
-                                                data-toggle="dropdown" aria-expanded="true">
-                                                عزباء<i class="fa fa-angle-down"></i>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right" x-placement="top-end"
-                                                style="
-                            position: absolute;
-                            will-change: transform;
-                            top: 0px;
-                            left: 0px;
-                            transform: translate3d(80px, -115px, 0px);
-                          ">
-                                                <a class="dropdown-item" href="#"> 170 m </a>
-                                                <a class="dropdown-item" href="#">Last 6 Month</a>
-                                                <a class="dropdown-item" href="#">Last 10 Month</a>
-                                            </div>
-                                        </div>
+                                        <select name="length"
+                                            class="btn btn-outline-primary w-100 d-flex justify-content-between align-items-center">
+                                            <option
+                                                style="position: absolute; transform; top: 0px; left: 0px; transform: translate3d(80px, -115px, 0px);"
+                                                value="" selected disabled> إخترالطول </option>
+                                            @foreach ($clients as $client)
+                                                <option value="{{ $client->length }}">{{ $client->length }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
+                                    {{-- الحالة الاجتماعية --}}
+                                    <div class="form-group col-lg-3 col-md-6 d-flex flex-column">
+                                        <label class="col-form-label"><strong> الحالة الإجتماعية</strong></label>
+                                        <select name="maritalStatus"
+                                            class="btn btn-outline-primary w-100 d-flex justify-content-between align-items-center">
+                                            <option
+                                                style="position: absolute; transform; top: 0px; left: 0px; transform: translate3d(80px, -115px, 0px);"
+                                                value="" selected disabled> إختر الحالة الإجتماعية </option>
+                                            <option value="متزوج">متزوج/ة</option>
+                                            <option value="مطلق">مطلق/ة</option>
+                                            <option value="أعذب">أعذب/ة</option>
+                                        </select>
+                                    </div>
+
+                                    {{-- الوزن --}}
                                     <div class="form-group col-lg-3 col-md-6 d-flex flex-column">
                                         <label class="col-form-label"><strong> الوزن</strong></label>
-                                        <div class="dropdown custom-dropdown">
-                                            <button type="button"
-                                                class="btn btn-outline-primary w-100 d-flex justify-content-between align-items-center"
-                                                data-toggle="dropdown" aria-expanded="true">
-                                                70 kg <i class="fa fa-angle-down"></i>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right" x-placement="top-end"
-                                                style="
-                            position: absolute;
-                            will-change: transform;
-                            top: 0px;
-                            left: 0px;
-                            transform: translate3d(80px, -115px, 0px);
-                          ">
-                                                <a class="dropdown-item" href="#"> 170 m </a>
-                                                <a class="dropdown-item" href="#">Last 6 Month</a>
-                                                <a class="dropdown-item" href="#">Last 10 Month</a>
-                                            </div>
-                                        </div>
+                                        <select name="weight"
+                                            class="btn btn-outline-primary w-100 d-flex justify-content-between align-items-center">
+                                            <option
+                                                style="position: absolute; transform; top: 0px; left: 0px; transform: translate3d(80px, -115px, 0px);"
+                                                value="" selected disabled> إختر الوزن </option>
+                                            @foreach ($clients as $client)
+                                                <option value="{{ $client->weight }}">{{ $client->weight }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
+                                    {{-- الجنسية --}}
                                     <div class="form-group col-lg-3 col-md-6 d-flex flex-column">
-                                        <label class="col-form-label"><strong> الجنسية</strong></label>
-                                        <div class="dropdown custom-dropdown">
-                                            <button type="button"
-                                                class="btn btn-outline-primary w-100 d-flex justify-content-between align-items-center"
-                                                data-toggle="dropdown" aria-expanded="true">
-                                                سعودي<i class="fa fa-angle-down"></i>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right" x-placement="top-end"
-                                                style="
-                            position: absolute;
-                            will-change: transform;
-                            top: 0px;
-                            left: 0px;
-                            transform: translate3d(80px, -115px, 0px);
-                          ">
-                                                <a class="dropdown-item" href="#"> 170 m </a>
-                                                <a class="dropdown-item" href="#">Last 6 Month</a>
-                                                <a class="dropdown-item" href="#">Last 10 Month</a>
-                                            </div>
-                                        </div>
+                                        <label class="col-form-label"><strong>الجنسية</strong></label>
+                                        <select name="country"
+                                            class="btn btn-outline-primary w-100 d-flex justify-content-between align-items-center">
+                                            <option
+                                                style="position: absolute; transform; top: 0px; left: 0px; transform: translate3d(80px, -115px, 0px);"
+                                                value="" selected disabled>إختر الجنسية</option>
+
+                                            </option>
+
+                                            <option value="مصر">مصر</option>
+                                            <option value="السعودية">السعودية</option>
+                                            <option value="قطر">قطر</option>
+                                            <option value="الكويت">الكويت</option>
+                                            <option value="الامارات">الامارات</option>
+                                            <option value="المغرب">المغرب</option>
+                                            <option value="تونس">تونس</option>
+                                            <option value="ليبيا">ليبيا</option>
+                                            <option value="الجزائر">الجزائر</option>
+                                            <option value="اسبانيا">اسبانيا</option>
+                                        </select>
                                     </div>
 
+                                    {{-- بداية العمر --}}
                                     <div class="form-group col-lg-3 col-md-6 d-flex flex-column">
                                         <label class="col-form-label"><strong> العمر</strong></label>
-                                        <div class="dropdown custom-dropdown">
-                                            <button type="button"
-                                                class="btn btn-outline-primary w-100 d-flex justify-content-between align-items-center"
-                                                data-toggle="dropdown" aria-expanded="true">
-                                                20 سنة <i class="fa fa-angle-down"></i>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right" x-placement="top-end"
-                                                style="
-                            position: absolute;
-                            will-change: transform;
-                            top: 0px;
-                            left: 0px;
-                            transform: translate3d(80px, -115px, 0px);
-                          ">
-                                                <a class="dropdown-item" href="#"> 170 m </a>
-                                                <a class="dropdown-item" href="#">Last 6 Month</a>
-                                                <a class="dropdown-item" href="#">Last 10 Month</a>
-                                            </div>
-                                        </div>
+                                        <select name="age_from"
+                                            class="btn btn-outline-primary w-100 d-flex justify-content-between align-items-center">
+                                            <option
+                                                style="position: absolute; transform; top: 0px; left: 0px; transform: translate3d(80px, -115px, 0px);"
+                                                value="" selected disabled> إختر بداية العمر </option>
+                                            @foreach ($clients as $client)
+                                                <option value="{{ $client->age }}">{{ $client->age }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
+                                    {{-- نهاية العمر --}}
                                     <div class="form-group col-lg-3 col-md-6 d-flex flex-column">
-                                        <label class="col-form-label"><strong> الي</strong></label>
-                                        <div class="dropdown custom-dropdown">
-                                            <button type="button"
-                                                class="btn btn-outline-primary w-100 d-flex justify-content-between align-items-center"
-                                                data-toggle="dropdown" aria-expanded="true">
-                                                25 سنة<i class="fa fa-angle-down"></i>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right" x-placement="top-end"
-                                                style="
-                            position: absolute;
-                            will-change: transform;
-                            top: 0px;
-                            left: 0px;
-                            transform: translate3d(80px, -115px, 0px);
-                          ">
-                                                <a class="dropdown-item" href="#"> 170 m </a>
-                                                <a class="dropdown-item" href="#">Last 6 Month</a>
-                                                <a class="dropdown-item" href="#">Last 10 Month</a>
-                                            </div>
-                                        </div>
+                                        <label class="col-form-label"><strong> إلى </strong></label>
+                                        <select name="age_to"
+                                            class="btn btn-outline-primary w-100 d-flex justify-content-between align-items-center">
+                                            <option
+                                                style="position: absolute; transform; top: 0px; left: 0px; transform: translate3d(80px, -115px, 0px);"
+                                                value="" selected disabled> إختر نهاية العمر </option>
+                                            @foreach ($clients as $client)
+                                                <option value="{{ $client->age }}">{{ $client->age }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
+
+
                                 </div>
                                 <div class="d-flex justify-content-center align-items-center mt-2">
-                                    <a href="searchaboutclient-to-supervisior.html" class="btn btn-primary w-25">
+                                    <button type="submit" class="btn btn-primary w-25">
                                         ابدأ البحث
-                                    </a>
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -231,10 +181,10 @@
                             <!-- <div class="d-flex justify-content-start mb-3"> -->
                             <h4 class="mb-3">نتائج البحث</h4>
                             <!-- <span class="search-icon ms-2"><i class="fa fa-filter" aria-hidden="true"></i>
-                    </span>
-                    <span class="search-icon"><i class="fa fa-sort"></i>
-                    </span>
-                    </div> -->
+                                                                                                                                                                                                                                                                                                                                </span>
+                                                                                                                                                                                                                                                                                                                                <span class="search-icon"><i class="fa fa-sort"></i>
+                                                                                                                                                                                                                                                                                                                                </span>
+                                                                                                                                                                                                                                                                                                                                </div> -->
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="card">
@@ -256,61 +206,23 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td><strong> نور</strong></td>
-                                                            <td>170 m</td>
-                                                            <td>70 kg</td>
-                                                            <td>24 سنه</td>
-                                                            <td>عزباء</td>
-                                                            <td>سعودية</td>
-                                                            <td>
-                                                                <button type="button" class="btn btn-primary">
-                                                                    عرض البيانات
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td><strong> نور</strong></td>
-                                                            <td>170 m</td>
-                                                            <td>70 kg</td>
-                                                            <td>24 سنه</td>
-                                                            <td>عزباء</td>
-                                                            <td>سعودية</td>
-                                                            <td>
-                                                                <button type="button" class="btn btn-primary">
-                                                                    عرض البيانات
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td><strong> نور</strong></td>
-                                                            <td>170 m</td>
-                                                            <td>70 kg</td>
-                                                            <td>24 سنه</td>
-                                                            <td>عزباء</td>
-                                                            <td>سعودية</td>
-                                                            <td>
-                                                                <button type="button" class="btn btn-primary">
-                                                                    عرض البيانات
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td><strong> نور</strong></td>
-                                                            <td>170 m</td>
-                                                            <td>70 kg</td>
-                                                            <td>24 سنه</td>
-                                                            <td>عزباء</td>
-                                                            <td>سعودية</td>
-                                                            <td>
-                                                                <button type="button" class="btn btn-primary">
-                                                                    عرض البيانات
-                                                                </button>
-                                                            </td>
-                                                        </tr>
+                                                        @forelse ($clients as $client)
+                                                            <tr>
+                                                                <td><strong> {{ $client->realName }}</strong></td>
+                                                                <td>{{ $client->length }} سم</td>
+                                                                <td>{{ $client->weight }} كجم</td>
+                                                                <td>{{ $client->age }} عام</td>
+                                                                <td>{{ $client->maritalStatus }}</td>
+                                                                <td>{{ $client->country }}</td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-primary">
+                                                                        عرض البيانات
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        @empty
+                                                            <p class="text-center text-danger">لا يوجد بيانات مطابقة</p>
+                                                        @endforelse
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -328,8 +240,8 @@
                     </div>
                 </div>
                 <!--**********************************
-                          Content body end
-                    ***********************************-->
+                                                                                                                                                                                                                                                                                                                                      Content body end
+                                                                                                                                                                                                                                                                                                                                ***********************************-->
             </div>
         </div>
     </div>

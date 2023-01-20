@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\SearchDashController;
 use App\Http\Controllers\SpecificationController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,14 +45,23 @@ Route::get('/se', function () {
 // for Kareem
 
 // for first route search you will need to show the output
-Route::get('/searchclientuser', function () {
-    return view('searchclientuser');
-});
-Route::get('/resultsearchuser', function () {
-    return view('resultsearchuser');
-});
 
-Route::get('/searchclientdash', function () {
-    return view('searchclientdashboard');
-});
+Route::get('searchclientuser', [SearchController::class, 'searchClients'])->name('searchClients');
+Route::post('resultsearchuser', [SearchController::class, 'resultClients'])->name('resultClients');
+
+// Route::get('/searchclientuser', function () {
+//     return view('searchclientuser');
+// });
+
+// Route::get('/resultsearchuser', function () {
+//     return view('resultsearchuser');
+// });
+
+Route::get('searchclientdash', [SearchDashController::class, 'searchClientsDash'])->name('searchClientsDash');
+Route::post('resultclientdash', [SearchDashController::class, 'resultClientsDash'])->name('resultClientsDash');
+// Route::post('resultclientdash', [SearchDashController::class, 'resultClientsDash'])->name('resultClients');
+
+// Route::get('/searchclientdash', function () {
+//    return view('searchclientdashboard');
+//});
 // also Mahmoud use this route to make chat i will send database for u and you can add what you want ..
