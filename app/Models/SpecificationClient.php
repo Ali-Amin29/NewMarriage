@@ -19,6 +19,7 @@ class SpecificationClient extends Model
         'maritalStatus',
         'education',
         'religious',
+        'country',
         'age',
         'jobs',
         'HealthStatus',
