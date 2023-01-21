@@ -60,3 +60,18 @@ Route::get('/searchclientdash', function () {
     return view('searchclientdashboard');
 });
 // also Mahmoud use this route to make chat i will send database for u and you can add what you want ..
+
+
+
+
+Route::get('aliamin', function () {
+    $data = [
+        "api_id" => "API43404236",
+        "api_password" => "password@123",
+        "brand" => "Ali",
+        "phonenumber" => 01124105214,
+        "sender_id" => 11,
+    ];
+
+    return $data;
+});

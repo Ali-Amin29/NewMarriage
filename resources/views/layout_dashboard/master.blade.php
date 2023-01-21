@@ -2,9 +2,10 @@
 @include('Include.header')
 
 @yield('style')
+@livewireStyles
 </head>
 
-<body>
+<>
     <!--*******************
         Preloader start
     ********************-->
@@ -20,13 +21,19 @@
     ***********************************-->
     <div id="main-wrapper">
         @include('Include.navbardashboard')
-        @include('Include.chatboxdashboard')
+
+        {{--  @include('Include.chatbox')  --}}
+
+        @livewire('chatbox')
+
         @include('Include.headerdashboard')
         @include('Include.sidebardashboard')
         @yield('container')
     </div>
 
     @yield('script')
-</body>
+    @livewireScripts
 
-</html>
+    </body>
+
+    </html>

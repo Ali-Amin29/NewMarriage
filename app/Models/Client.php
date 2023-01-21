@@ -15,7 +15,7 @@ class Client extends Model
         'complete'
 
     ];
-    protected $table = 'client';
+    protected $table = 'clients';
 
 
 

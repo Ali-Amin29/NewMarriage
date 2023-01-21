@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\Request;
 
+// use App\Http\Controllers\SmsServiceController;
+
+
 class RegisterController extends Controller
 {
     /*
@@ -37,9 +40,11 @@ class RegisterController extends Controller
      *
      * @return void
      */
+    // private $PayService;
     public function __construct()
     {
         $this->middleware('guest');
+        // $this->PayService = $PayService;
     }
 
     /**
@@ -66,12 +71,22 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         if ($data['hidden'] == 1) {
-            return User::create([
+            return  User::create([
                 'name' => $data['name'],
                 'phone' => $data['phone'],
                 'role' => 'مشرف',
                 'password' => Hash::make($data['password']),
             ]);
+        // $user1=User::where('phone',$data['phone'])->get();
+        //         $data=[
+        //                 "api_id"=> 'API43404236',
+        //                 "api_password"=> 'password@123' ,
+        //                 "brand"=> $data['name'],
+        //                 "phonenumber"=> $data['phone'],
+        //                 "sender_id"=> $user1[0]->id,
+        //         ];
+        //             return  $this->PayService->sendOtp($data);
+
         }
         elseif($data['hidden'] == 2)
         {

@@ -12,4 +12,6 @@ class Supervisor extends Model
         'status',
         'user_id',
     ];
+    protected $table = 'Supervisors';
+
 }
